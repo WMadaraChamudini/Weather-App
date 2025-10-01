@@ -1,16 +1,15 @@
-<<<<<<< HEAD
 # 🌤️ Weather Dashboard
 
-## 📖 Description
+## Description
 
 The Weather Dashboard is a comprehensive weather application that provides real-time weather information, forecasts, and air quality data for cities worldwide. Built with a modern tech stack featuring an ASP.NET Core Web API backend and a responsive vanilla JavaScript frontend, this application offers an intuitive user experience with advanced features like GPS location detection, search history, favorite cities management, and customizable themes.
 
 **Perfect for users who want detailed weather information with a clean, modern interface and advanced functionality beyond basic weather apps.**
 
-![Weather Dashboard](https://img.shields.io/badge/Status-Active-brightgreen)
+{/*![Weather Dashboard](https://img.shields.io/badge/Status-Active-brightgreen)
 ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-9.0-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
-![HTML5](https://img.shields.io/badge/HTML5-orange)
+![HTML5](https://img.shields.io/badge/HTML5-orange) */}
 
 ## 🌟 Features
 
