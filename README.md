@@ -6,10 +6,10 @@ The Weather Dashboard is a comprehensive weather application that provides real-
 
 **Perfect for users who want detailed weather information with a clean, modern interface and advanced functionality beyond basic weather apps.**
 
-{/*![Weather Dashboard](https://img.shields.io/badge/Status-Active-brightgreen)
+![Weather Dashboard](https://img.shields.io/badge/Status-Active-brightgreen)
 ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-9.0-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
-![HTML5](https://img.shields.io/badge/HTML5-orange) */}
+![HTML5](https://img.shields.io/badge/HTML5-orange)
 
 ## 🌟 Features
 
