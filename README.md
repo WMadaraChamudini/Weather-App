@@ -44,32 +44,48 @@ Weather Dashboard/
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### Option 1: Docker (Recommended - Fastest)
+
+**Prerequisites:** [Docker](https://www.docker.com/get-started)
+
+```bash
+git clone <repository-url>
+cd Weather-App
+./start.sh
+```
+
+That's it! 🎉 Access the app at:
+- **Frontend:** http://localhost:3001
+- **Backend API:** http://localhost:5101
+
+### Option 2: Manual Setup
+
+**Prerequisites:**
 - [.NET 9.0 SDK](https://dotnet.microsoft.com/download)
 - [Node.js](https://nodejs.org/) (for frontend server)
 - OpenWeatherMap API Key (included in demo)
 
-### 1. Clone the Repository
+**1. Clone the Repository**
 ```bash
 git clone <repository-url>
-cd "Weather app"
+cd Weather-App
 ```
 
-### 2. Start the Backend (ASP.NET Core API)
+**2. Start the Backend (ASP.NET Core API)**
 ```bash
 cd WeatherDashboardAPI
 dotnet run
 ```
 Backend will run on: `http://localhost:5101`
 
-### 3. Start the Frontend (Node.js Server)
+**3. Start the Frontend (Node.js Server)** *(in a new terminal)*
 ```bash
 cd weather-dashboard-frontend
 node server.js
 ```
 Frontend will run on: `http://localhost:3001`
 
-### 4. Open in Browser
+**4. Open in Browser**
 Navigate to: `http://localhost:3001`
 
 ## 🛠️ API Endpoints
@@ -184,16 +200,36 @@ The backend uses the following configuration:
 - **Error Handling** - Secure error messages without sensitive data
 - **Rate Limiting** - Built-in protection via external API limits
 
-## 🚀 Deployment Options
+## 🚀 Deployment
 
-### Local Development
-- Backend: `dotnet run`
-- Frontend: `node server.js`
+### Quick Deploy with Docker
+```bash
+# Clone and run with Docker Compose
+git clone <repository-url>
+cd Weather-App
+docker-compose up --build
+```
+
+Access the app at:
+- Frontend: http://localhost:3001
+- Backend API: http://localhost:5101
 
 ### Production Deployment
-- **Backend**: Deploy to Azure App Service, IIS, or Docker
-- **Frontend**: Deploy to any static hosting (Netlify, Vercel, GitHub Pages)
-- **Environment Variables**: Configure API keys and URLs
+
+**📖 For complete deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)**
+
+The deployment guide covers:
+- Docker deployment (recommended)
+- Azure App Service
+- Heroku
+- Netlify/Vercel
+- DigitalOcean
+- Manual deployment (IIS, Nginx)
+- CI/CD with GitHub Actions
+
+### Local Development
+- Backend: `cd WeatherDashboardAPI && dotnet run`
+- Frontend: `cd weather-dashboard-frontend && node server.js`
 
 ## 🧪 Testing
 

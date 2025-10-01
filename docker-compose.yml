@@ -1,0 +1,45 @@
+services:
+  # Backend API Service
+  backend:
+    build:
+      context: ./WeatherDashboardAPI
+      dockerfile: Dockerfile
+    container_name: weather-api
+    ports:
+      - "5101:5101"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5101
+    networks:
+      - weather-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5101/api/weather/test"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./weather-dashboard-frontend
+      dockerfile: Dockerfile
+    container_name: weather-frontend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - backend
+    networks:
+      - weather-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3001"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  weather-network:
+    driver: bridge
