@@ -6,30 +6,25 @@ The Weather Dashboard is a comprehensive weather application that provides real-
 
 **Perfect for users who want detailed weather information with a clean, modern interface and advanced functionality beyond basic weather apps.**
 
-![Weather Dashboard](https://img.shields.io/badge/Status-Active-brightgreen)
-![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-9.0-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
-![HTML5](https://img.shields.io/badge/HTML5-orange)
-
 ## 🌟 Features
 
 ### Core Weather Features
-- **🌡️ Current Weather Data** - Real-time temperature, conditions, and weather icons
-- **📅 5-Day Forecast** - Extended weather predictions with daily breakdowns
-- **🌍 Global City Search** - Search weather for any city worldwide
-- **📍 GPS Auto-Location** - Automatic location detection and weather fetch
+- **Current Weather Data** - Real-time temperature, conditions, and weather icons
+- **5-Day Forecast** - Extended weather predictions with daily breakdowns
+- **Global City Search** - Search weather for any city worldwide
+- **GPS Auto-Location** - Automatic location detection and weather fetch
 
 ### User Experience Features
-- **🌙 Dark/Light Theme Toggle** - Seamless theme switching with persistence
-- **⭐ Favorite Cities** - Save and quickly access frequently searched cities
-- **📝 Search History** - Track recent searches with timestamps (up to 10 entries)
-- **🌬️ Air Quality Index** - Real-time AQI data with health impact descriptions
+- **Dark/Light Theme Toggle** - Seamless theme switching with persistence
+- **Favorite Cities** - Save and quickly access frequently searched cities
+- **Search History** - Track recent searches with timestamps (up to 10 entries)
+- **Air Quality Index** - Real-time AQI data with health impact descriptions
 
 ### Advanced Features
-- **💨 Detailed Air Quality** - CO, NO2, O3, PM2.5, PM10 measurements
-- **📊 Historical Weather** - Past weather data and trends
-- **🔄 Real-time Updates** - Live weather data from OpenWeatherMap API
-- **📱 Responsive Design** - Works perfectly on desktop, tablet, and mobile
+- **Detailed Air Quality** - CO, NO2, O3, PM2.5, PM10 measurements
+- **Historical Weather** - Past weather data and trends
+- **Real-time Updates** - Live weather data from OpenWeatherMap API
+- **Responsive Design** - Works perfectly on desktop, tablet, and mobile
 
 ## 🏗️ Architecture
 
@@ -65,14 +60,14 @@ cd "Weather app"
 cd WeatherDashboardAPI
 dotnet run
 ```
-✅ Backend will run on: `http://localhost:5101`
+Backend will run on: `http://localhost:5101`
 
 ### 3. Start the Frontend (Node.js Server)
 ```bash
 cd weather-dashboard-frontend
 node server.js
 ```
-✅ Frontend will run on: `http://localhost:3001`
+Frontend will run on: `http://localhost:3001`
 
 ### 4. Open in Browser
 Navigate to: `http://localhost:3001`
@@ -103,8 +98,8 @@ curl "http://localhost:5101/api/weather/air-quality?city=NewYork"
 ## 🎨 User Interface
 
 ### Theme Options
-- **🌞 Light Theme** - Clean, bright interface
-- **🌙 Dark Theme** - Easy on the eyes for low-light usage
+- **Light Theme** - Clean, bright interface
+- **Dark Theme** - Easy on the eyes for low-light usage
 
 ### Navigation Sections
 1. **Search Bar** - Enter city names for weather lookup
@@ -231,11 +226,11 @@ curl "http://localhost:5101/api/weather?city=London"
 
 ## 📱 Browser Compatibility
 
-- ✅ Chrome 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
-- ✅ Edge 90+
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## 🤝 Contributing
 
@@ -266,9 +261,3 @@ For support and questions:
 ---
 
 **🌟 Enjoy using the Weather Dashboard!** 
-
-*Built with ❤️ using modern web technologies*
-=======
-# Weather-App
-A modern, full-stack weather application featuring real-time weather data, 5-day forecasts, air quality monitoring, GPS auto-location, search history, favorite cities, dark/light themes, and responsive design.
->>>>>>> b941b9f01d80f8a35ba728fc1fd02d00d3bbd151
