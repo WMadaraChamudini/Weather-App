@@ -198,14 +198,14 @@ The backend uses the following configuration:
 ## 🧪 Testing
 
 ### Manual Testing Checklist
-- [ ] Search for different cities
-- [ ] Test GPS location detection
-- [ ] Toggle between light/dark themes
-- [ ] Add/remove favorite cities
-- [ ] View search history
-- [ ] Check 5-day forecast
-- [ ] Verify air quality data
-- [ ] Test responsive design
+- Search for different cities
+- Test GPS location detection
+- Toggle between light/dark themes
+- Add/remove favorite cities
+- View search history
+- Check 5-day forecast
+- Verify air quality data
+- Test responsive design
 
 ### API Testing
 ```bash
