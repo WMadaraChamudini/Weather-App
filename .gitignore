@@ -137,3 +137,16 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# .NET build artifacts
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.vs/
+
+# Deployment artifacts
+publish/
+*.zip
+deploy.zip
