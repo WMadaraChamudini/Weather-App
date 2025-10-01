@@ -2,9 +2,20 @@
 
 This guide provides comprehensive instructions for deploying the Weather Dashboard application to various platforms.
 
+## 🎯 Choose Your Deployment Method
+
+| Method | Difficulty | Time | Best For |
+|--------|-----------|------|----------|
+| **Docker Compose** | ⭐ Easy | 5 min | Quick local or single-server deployment |
+| **Azure App Service** | ⭐⭐ Medium | 15 min | Production with Microsoft ecosystem |
+| **Heroku** | ⭐⭐ Medium | 10 min | Quick cloud deployment with free tier |
+| **Netlify/Vercel** | ⭐ Easy | 5 min | Frontend only (need separate backend) |
+| **DigitalOcean** | ⭐⭐ Medium | 20 min | Full control with managed services |
+| **Manual (IIS/Nginx)** | ⭐⭐⭐ Advanced | 30+ min | Custom server setups |
+
 ## Table of Contents
 
-1. [Quick Deploy with Docker](#quick-deploy-with-docker)
+1. [Quick Deploy with Docker](#quick-deploy-with-docker) ⭐ **Recommended**
 2. [Deploy to Cloud Platforms](#deploy-to-cloud-platforms)
 3. [Manual Deployment](#manual-deployment)
 4. [Environment Configuration](#environment-configuration)
@@ -37,7 +48,7 @@ The fastest way to deploy the Weather Dashboard is using Docker.
 
 3. **Build and run with Docker Compose**
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 
 4. **Access the application**
@@ -48,16 +59,16 @@ The fastest way to deploy the Weather Dashboard is using Docker.
 
 ```bash
 # Start services
-docker-compose up -d
+docker compose up -d
 
 # Stop services
-docker-compose down
+docker compose down
 
 # View logs
-docker-compose logs -f
+docker compose logs -f
 
 # Rebuild after changes
-docker-compose up --build
+docker compose up --build
 ```
 
 ---

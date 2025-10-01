@@ -1,10 +1,21 @@
 # 🌤️ Weather Dashboard
 
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)](https://www.docker.com/)
+[![.NET](https://img.shields.io/badge/.NET-9.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 ## Description
 
 The Weather Dashboard is a comprehensive weather application that provides real-time weather information, forecasts, and air quality data for cities worldwide. Built with a modern tech stack featuring an ASP.NET Core Web API backend and a responsive vanilla JavaScript frontend, this application offers an intuitive user experience with advanced features like GPS location detection, search history, favorite cities management, and customizable themes.
 
 **Perfect for users who want detailed weather information with a clean, modern interface and advanced functionality beyond basic weather apps.**
+
+## 📚 Documentation
+
+- **[Deployment Guide](DEPLOYMENT.md)** - Complete deployment instructions for all platforms
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to the project
+- **[API Documentation](#-api-endpoints)** - API endpoints and usage
 
 ## 🌟 Features
 
@@ -207,7 +218,12 @@ The backend uses the following configuration:
 # Clone and run with Docker Compose
 git clone <repository-url>
 cd Weather-App
-docker-compose up --build
+docker compose up --build
+```
+
+Or use the quick start script:
+```bash
+./start.sh
 ```
 
 Access the app at:
