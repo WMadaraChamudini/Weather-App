@@ -240,15 +240,10 @@ curl "http://localhost:5101/api/weather?city=London"
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🙏 Acknowledgments
 
 - **OpenWeatherMap** for providing weather data API
 - **Microsoft** for ASP.NET Core framework
-- **MDN Web Docs** for web development standards
 
 ## 📞 Support
 
