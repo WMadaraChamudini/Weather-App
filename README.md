@@ -86,10 +86,10 @@ Navigate to: `http://localhost:3001`
 ### Example API Calls
 ```bash
 # Current weather
-curl "http://localhost:5101/api/weather?city=London"
+curl "http://localhost:5101/api/weather?city=Kottawa"
 
 # 5-day forecast
-curl "http://localhost:5101/api/weather/forecast?city=Tokyo"
+curl "http://localhost:5101/api/weather/forecast?city=Pannipitiya"
 
 # Air quality
 curl "http://localhost:5101/api/weather/air-quality?city=NewYork"
