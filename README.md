@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌤️ Weather Dashboard
 
 ## 📖 Description
@@ -268,3 +269,7 @@ For support and questions:
 **🌟 Enjoy using the Weather Dashboard!** 
 
 *Built with ❤️ using modern web technologies*
+=======
+# Weather-App
+A modern, full-stack weather application featuring real-time weather data, 5-day forecasts, air quality monitoring, GPS auto-location, search history, favorite cities, dark/light themes, and responsive design.
+>>>>>>> b941b9f01d80f8a35ba728fc1fd02d00d3bbd151
