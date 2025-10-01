@@ -13,6 +13,7 @@ The Weather Dashboard is a comprehensive weather application that provides real-
 
 ## 📚 Documentation
 
+- **[Quick Start Guide](QUICKSTART.md)** - Get running in 5 minutes ⚡
 - **[Deployment Guide](DEPLOYMENT.md)** - Complete deployment instructions for all platforms
 - **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to the project
 - **[API Documentation](#-api-endpoints)** - API endpoints and usage
