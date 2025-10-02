@@ -43,3 +43,4 @@ D:\Weather app\WeatherDashboardAPI\obj\Debug\net9.0\refint\WeatherDashboardAPI.d
 D:\Weather app\WeatherDashboardAPI\obj\Debug\net9.0\WeatherDashboardAPI.pdb
 D:\Weather app\WeatherDashboardAPI\obj\Debug\net9.0\WeatherDashboardAPI.genruntimeconfig.cache
 D:\Weather app\WeatherDashboardAPI\obj\Debug\net9.0\ref\WeatherDashboardAPI.dll
+D:\Weather app\WeatherDashboardAPI\obj\Debug\net9.0\WeatherDashboardAPI.sourcelink.json

@@ -49,7 +49,7 @@
             gap: 10px;
         }
 
-        .location-btn, .theme-toggle {
+        .location-btn, .theme-toggle, .favorites-btn {
             padding: 10px;
             background: rgba(255,255,255,0.2);
             color: white;
@@ -65,9 +65,24 @@
             justify-content: center;
         }
 
-        .location-btn:hover, .theme-toggle:hover {
+        .location-btn:hover, .theme-toggle:hover, .favorites-btn:hover {
             background: rgba(255,255,255,0.3);
             transform: scale(1.1);
+        }
+
+        .favorites-btn {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .favorites-btn:hover {
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        .favorites-btn.active {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 1);
         }
 
         .search-form {
@@ -126,10 +141,41 @@
             display: block;
         }
 
-        .search-history-section h3 {
-            color: white;
+        .search-history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .search-history-header h3 {
+            color: white;
             font-size: 1.1rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .history-toggle-icon {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .history-toggle-icon.expanded {
+            transform: rotate(90deg);
+        }
+
+        .search-history-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .search-history-content.expanded {
+            max-height: 400px;
         }
 
         .search-history-list {
@@ -146,12 +192,12 @@
             color: white;
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 15px;
-            cursor: pointer;
             font-size: 0.9rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            position: relative;
         }
 
         .history-item:hover {
@@ -159,9 +205,35 @@
             transform: translateY(-2px);
         }
 
+        .history-city {
+            cursor: pointer;
+            flex: 1;
+        }
+
         .history-timestamp {
             font-size: 0.7rem;
             opacity: 0.7;
+        }
+
+        .history-delete {
+            background: rgba(231, 76, 60, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-left: 5px;
+        }
+
+        .history-delete:hover {
+            background: rgba(231, 76, 60, 1);
+            transform: scale(1.1);
         }
 
         .clear-history-btn {
@@ -186,6 +258,7 @@
             border-radius: 15px;
             padding: 20px;
             display: none;
+            position: relative;
         }
 
         .favorites-section.visible {
@@ -517,6 +590,7 @@
             <div class="controls">
                 <button id="locationBtn" class="location-btn" title="Use my location">📍</button>
                 <button id="themeToggle" class="theme-toggle" title="Toggle theme">🌙</button>
+                <button id="favoritesBtn" class="favorites-btn" title="Show/Hide favorites">⭐</button>
             </div>
         </div>
         
@@ -541,11 +615,18 @@
 
         <!-- Search History -->
         <div class="search-history-section" id="searchHistorySection">
-            <h3>Recent Searches</h3>
-            <div class="search-history-list" id="searchHistoryList">
-                <!-- Search history will be dynamically added here -->
+            <div class="search-history-header" id="searchHistoryHeader">
+                <h3>
+                    <span class="history-toggle-icon" id="historyToggleIcon">▶</span>
+                    Recent Searches
+                </h3>
             </div>
-            <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
+            <div class="search-history-content" id="searchHistoryContent">
+                <div class="search-history-list" id="searchHistoryList">
+                    <!-- Search history will be dynamically added here -->
+                </div>
+                <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
+            </div>
         </div>
 
         <!-- Favorite Cities -->
@@ -628,6 +709,7 @@
         const forecastSection = document.getElementById('forecastSection');
         const favoritesSection = document.getElementById('favoritesSection');
         const favoritesList = document.getElementById('favoritesList');
+        const favoritesBtn = document.getElementById('favoritesBtn');
         const addFavoriteButton = document.getElementById('addFavoriteButton');
         const forecastToggle = document.getElementById('forecastToggle');
         const locationBtn = document.getElementById('locationBtn');
@@ -635,10 +717,14 @@
         const airQuality = document.getElementById('airQuality');
         const searchHistorySection = document.getElementById('searchHistorySection');
         const searchHistoryList = document.getElementById('searchHistoryList');
+        const searchHistoryHeader = document.getElementById('searchHistoryHeader');
+        const searchHistoryContent = document.getElementById('searchHistoryContent');
+        const historyToggleIcon = document.getElementById('historyToggleIcon');
         const clearHistoryBtn = document.getElementById('clearHistoryBtn');
 
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
+            initializeFavoritesButton();
             updateFavoritesDisplay();
             updateSearchHistoryDisplay();
             initializeTheme();
@@ -649,7 +735,16 @@
             locationBtn.addEventListener('click', getCurrentLocation);
             themeToggle.addEventListener('click', toggleTheme);
             clearHistoryBtn.addEventListener('click', clearSearchHistory);
+            searchHistoryHeader.addEventListener('click', toggleSearchHistory);
+            favoritesBtn.addEventListener('click', toggleFavorites);
         });
+
+        function initializeFavoritesButton() {
+            // Make sure the favorites button starts inactive (not showing favorites)
+            favoritesBtn.classList.remove('active');
+            favoritesBtn.title = 'Show favorites';
+            favoritesSection.classList.remove('visible');
+        }
 
         async function handleSearch(e) {
             e.preventDefault();
@@ -757,14 +852,25 @@
         }
 
         function updateFavoritesDisplay() {
+            // Always clear the list first
+            favoritesList.innerHTML = '';
+            
             if (favoriteCities.length === 0) {
+                // If no favorites, hide the section and deactivate the button
                 favoritesSection.classList.remove('visible');
+                favoritesBtn.classList.remove('active');
                 return;
             }
 
-            favoritesSection.classList.add('visible');
-            favoritesList.innerHTML = '';
+            // Only show the section if the star button is active (clicked)
+            const isStarActive = favoritesBtn.classList.contains('active');
+            if (isStarActive) {
+                favoritesSection.classList.add('visible');
+            } else {
+                favoritesSection.classList.remove('visible');
+            }
 
+            // Always populate the list (even if hidden) so it's ready when toggled
             favoriteCities.forEach(city => {
                 const favoriteItem = document.createElement('div');
                 favoriteItem.className = 'favorite-item';
@@ -971,27 +1077,71 @@
             searchHistorySection.classList.add('visible');
             searchHistoryList.innerHTML = '';
 
-            searchHistory.forEach(item => {
+            searchHistory.forEach((item, index) => {
                 const historyItem = document.createElement('div');
                 historyItem.className = 'history-item';
                 historyItem.innerHTML = `
-                    <span>${item.city}</span>
+                    <span class="history-city">${item.city}</span>
                     <span class="history-timestamp">${item.displayTime}</span>
+                    <button class="history-delete" title="Delete this search">×</button>
                 `;
                 
-                historyItem.addEventListener('click', () => {
+                // Add click event for city name to search
+                const citySpan = historyItem.querySelector('.history-city');
+                citySpan.addEventListener('click', () => {
                     cityInput.value = item.city;
                     fetchWeatherData(item.city);
+                });
+
+                // Add click event for delete button
+                const deleteBtn = historyItem.querySelector('.history-delete');
+                deleteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    removeFromSearchHistory(index);
                 });
 
                 searchHistoryList.appendChild(historyItem);
             });
         }
 
+        function removeFromSearchHistory(index) {
+            searchHistory.splice(index, 1);
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+            updateSearchHistoryDisplay();
+        }
+
         function clearSearchHistory() {
             searchHistory = [];
             localStorage.removeItem('searchHistory');
             updateSearchHistoryDisplay();
+        }
+
+        function toggleSearchHistory() {
+            const isExpanded = searchHistoryContent.classList.contains('expanded');
+            
+            if (isExpanded) {
+                searchHistoryContent.classList.remove('expanded');
+                historyToggleIcon.classList.remove('expanded');
+                historyToggleIcon.textContent = '▶';
+            } else {
+                searchHistoryContent.classList.add('expanded');
+                historyToggleIcon.classList.add('expanded');
+                historyToggleIcon.textContent = '▼';
+            }
+        }
+
+        function toggleFavorites() {
+            const isVisible = favoritesSection.classList.contains('visible');
+            
+            if (isVisible) {
+                favoritesSection.classList.remove('visible');
+                favoritesBtn.classList.remove('active');
+                favoritesBtn.title = 'Show favorites';
+            } else {
+                favoritesSection.classList.add('visible');
+                favoritesBtn.classList.add('active');
+                favoritesBtn.title = 'Hide favorites';
+            }
         }
     </script>
 </body>
