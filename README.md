@@ -256,3 +256,4 @@ For support and questions:
 ---
 
 **🌟 Enjoy using the Weather Dashboard!** 
+
