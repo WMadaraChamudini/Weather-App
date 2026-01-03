@@ -2,14 +2,14 @@
 
 ## Description
 
-The Weather Dashboard is a comprehensive weather application that provides real-time weather information, forecasts, and air quality data for cities worldwide. Built with a modern tech stack featuring an ASP.NET Core Web API backend and a responsive vanilla JavaScript frontend, this application offers an intuitive user experience with advanced features like GPS location detection, search history, favorite cities management, and customizable themes.
+The Weather Dashboard is a comprehensive weather application that provides real-time weather information, forecasts and air quality data for cities worldwide. Built with a modern tech stack featuring an ASP.NET Core Web API backend and a responsive React frontend, this application offers an intuitive user experience with advanced features like GPS location detection, search history, favorite cities management and customizable themes.
 
 **Perfect for users who want detailed weather information with a clean, modern interface and advanced functionality beyond basic weather apps.**
 
 ## 🌟 Features
 
 ### Core Weather Features
-- **Current Weather Data** - Real-time temperature, conditions, and weather icons
+- **Current Weather Data** - Real-time temperature, conditions and weather icons
 - **5-Day Forecast** - Extended weather predictions with daily breakdowns
 - **Global City Search** - Search weather for any city worldwide
 - **GPS Auto-Location** - Automatic location detection and weather fetch
@@ -24,7 +24,7 @@ The Weather Dashboard is a comprehensive weather application that provides real-
 - **Detailed Air Quality** - CO, NO2, O3, PM2.5, PM10 measurements
 - **Historical Weather** - Past weather data and trends
 - **Real-time Updates** - Live weather data from OpenWeatherMap API
-- **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+- **Responsive Design** - Works perfectly on desktop, tablet and mobile
 
 ## 🏗️ Architecture
 
@@ -65,35 +65,11 @@ Backend will run on: `http://localhost:5101`
 ### 3. Start the Frontend (Node.js Server)
 ```bash
 cd weather-dashboard-frontend
-node server.js
+npm install 
+npm start
 ```
-Frontend will run on: `http://localhost:3001`
+Frontend will run on: `http://localhost:3000` by default
 
-### 4. Open in Browser
-Navigate to: `http://localhost:3001`
-
-## 🛠️ API Endpoints
-
-### Weather Endpoints
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/weather?city={city}` | Get current weather for a city |
-| `GET` | `/api/weather/forecast?city={city}` | Get 5-day forecast |
-| `GET` | `/api/weather/air-quality?city={city}` | Get air quality data |
-| `GET` | `/api/weather/historical?city={city}&days={days}` | Get historical weather |
-| `GET` | `/api/weather/test` | API health check |
-
-### Example API Calls
-```bash
-# Current weather
-curl "http://localhost:5101/api/weather?city=Kottawa"
-
-# 5-day forecast
-curl "http://localhost:5101/api/weather/forecast?city=Pannipitiya"
-
-# Air quality
-curl "http://localhost:5101/api/weather/air-quality?city=NewYork"
-```
 
 ## 🎨 User Interface
 
@@ -109,18 +85,6 @@ curl "http://localhost:5101/api/weather/air-quality?city=NewYork"
 5. **Weather Display** - Current conditions and detailed information
 6. **Forecast Section** - Extended weather predictions
 
-## 🔧 Configuration
-
-### Backend Configuration
-The backend uses the following configuration:
-- **Port**: 5101
-- **CORS**: Enabled for localhost:3000 and localhost:3001
-- **API Key**: OpenWeatherMap (demo key included)
-
-### Frontend Configuration
-- **Port**: 3001
-- **Backend URL**: http://localhost:5101
-- **Storage**: localStorage for favorites, history, and theme
 
 ## 📦 Dependencies
 
@@ -130,7 +94,8 @@ The backend uses the following configuration:
 - System.Text.Json (built-in)
 
 ### Frontend
-- Vanilla JavaScript (ES6+)
+- React 18.2.0
+- React App (react-scripts)
 - Native Fetch API
 - CSS3 with modern features
 - Node.js (for static file serving)
@@ -192,7 +157,7 @@ The backend uses the following configuration:
 
 ### Production Deployment
 - **Backend**: Deploy to Azure App Service, IIS, or Docker
-- **Frontend**: Deploy to any static hosting (Netlify, Vercel, GitHub Pages)
+- **Frontend**: Deploy to any static hosting (Azure Static web app, Netlify, Vercel, GitHub Pages)
 - **Environment Variables**: Configure API keys and URLs
 
 ## 🧪 Testing
@@ -220,7 +185,7 @@ curl "http://localhost:5101/api/weather?city=London"
 
 1. **Make Changes** to backend or frontend
 2. **Restart Services** if needed
-3. **Test in Browser** at http://localhost:3001
+3. **Test in Browser** at http://localhost:3000
 4. **Check Console** for any errors
 5. **Verify API Responses** in Network tab
 
@@ -256,4 +221,5 @@ For support and questions:
 ---
 
 **🌟 Enjoy using the Weather Dashboard!** 
+
 
