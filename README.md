@@ -2,6 +2,8 @@
 
 A lightweight React-based weather dashboard that shows current weather and a 5-day forecast for searched cities. This repository contains the frontend app located in the `weather-dashboard` folder.
 
+Demo Video: https://drive.google.com/file/d/1v3RBWTLZOkYlGJ9S5NqJ8mDGeENN9DkM/view?usp=drive_link
+
 ## Features
 - Current weather (temperature, conditions, icons)
 - 5-day forecast
